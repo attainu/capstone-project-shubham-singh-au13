@@ -76,9 +76,10 @@ const Cart={
         ])
 
         let Allmedicines=Allcarditems[0].medicine.filter(i=>i.cart===true)
+        // console.log(Allmedicines)
         const data=Allmedicines.map(async(item)=>{
             let MedidineDetail=await AllMedicine.findOne({_id:item.medicineId})
-            return ({_id:item.id,buy:item.buy,date:item.date,cart:item.cart,quantity:item.quantity,buyerId:item.buyerId,medicineDetail:{...MedidineDetail._doc}})
+            return ({_id:item._id,buy:item.buy,date:item.date,cart:item.cart,quantity:item.quantity,buyerId:item.buyerId,medicineDetail:{...MedidineDetail._doc}})
         })
         
         Promise.all(data).then(d=>{
@@ -100,6 +101,14 @@ const Cart={
             err:{msg:e.message}
         })
     }
+    },
+    removeMedicinecart:async(req,resp)=>{
+        const Id=req.params.id
+        await BuyMedicine.findByIdAndDelete({_id:Id},)
+        return resp.status(200).json({
+            data:["removed"],
+            err:{}
+        })
     }
 }
 export default Cart
