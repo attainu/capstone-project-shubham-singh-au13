@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function AllCatItems() {
+export default function AllCatItems({history}) {
   const classes = useStyles();
   const [CartItems,setItems]=useState([])
   const TOKEN=useSelector(({Token})=>Token)
@@ -43,10 +43,27 @@ export default function AllCatItems() {
     })
 }
   },[TOKEN,TYPE,dispatch])
+
+
+  const REMOVEITEMS=(id)=>{
+    dispatch(LoderOperation.show())
+    fetch(`http://localhost:2000/user/remove/medicine/cart/${id}`,{
+      method:"POST",
+      headers:{
+        token:TOKEN
+      }
+    }).then(d=>d.json()).then(d=>{
+      dispatch(LoderOperation.hide())
+      setItems(CartItems.filter((item)=>item._id!==id))
+      
+    }).catch(e=>{dispatch(LoderOperation.hide())})
+  }
+  
   return (
   <>
   {TYPE==='user' && TOKEN.length!==0?
   <div style={{display:'flex',justifyContent:'space-evenly',flexWrap:'wrap'}} >{
+    
   CartItems.map((item,i)=>{
     var date = new Date(item?.date);
       return (
@@ -76,7 +93,7 @@ export default function AllCatItems() {
         <Button size="small" color="primary">
           BUY
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={()=>{REMOVEITEMS(item._id)}}>
           REMOVE
         </Button>
       </CardActions>
