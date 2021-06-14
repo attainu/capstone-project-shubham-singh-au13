@@ -39,6 +39,7 @@ export default function AllCatItems({history}) {
         }
     }).then(d=>d.json()).then(d=>{
       dispatch(LoderOperation.hide())
+      
         setItems(d.data)
     })
 }
@@ -84,13 +85,16 @@ export default function AllCatItems({history}) {
           <Typography gutterBottom variant="h5" component="h2">
           Quantity Ordered:{item?.quantity}
           </Typography>
+          <Typography gutterBottom variant="h5" component="h2">
+          TOTAL PRICE:{item?.quantity*item?.medicineDetail?.price}
+          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={()=>history.push(`${PATH.BUYITEM}/${item._id}/${item.medicineDetail._id}`)}>
           BUY
         </Button>
         <Button size="small" color="primary" onClick={()=>{REMOVEITEMS(item._id)}}>

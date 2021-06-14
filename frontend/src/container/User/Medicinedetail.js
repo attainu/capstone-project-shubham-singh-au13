@@ -46,6 +46,7 @@ export default function MedicineDetail({location,match,history}) {
                 history.push(PATH.HOME)
             }else{
                 setDetails([...d.data])
+                
             }
         }).catch(e=>{
             dispatch(LoderOperation.hide())
@@ -99,11 +100,8 @@ export default function MedicineDetail({location,match,history}) {
           </Typography>
         </div>
       <CardActions style={{display:'flex',justifyContent:'center'}}>
-        <Button size="small" variant="contained" color="primary">
-          Buy
-        </Button>
         <Button size="small"  variant="contained" color="secondary" onClick={()=>{history.push(`${PATH.DYNAMICCARTROUTE}/${Details?.[0]?.medicine?._id}`)}}>
-          Cart
+          Buy
         </Button>
       </CardActions>
     </Card>:<Redirect to = {PATH.HOME}></Redirect>

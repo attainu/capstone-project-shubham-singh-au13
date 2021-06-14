@@ -19,6 +19,12 @@ const PATH={
     MEDICINEDETAILS:'/detail/medicine/:id',
     DYNAMICCARTROUTE:'/cart/detail',
     ADDITEMTOCART:'/cart/detail/:id',
-    CARTITEMS:'/cart/items'
+    CARTITEMS:'/cart/items',
+    BUYITEM:'/buy/item',
+    BUTITEMSID:'/buy/item/:cart/:medicine',
+    ORDERS:'/orders',
+    ALLORDERS:'/all/orders',
+    RECIPT:'/recipt', 
+    RECIPTS:'/recipt/:id'
 }
 export default PATH

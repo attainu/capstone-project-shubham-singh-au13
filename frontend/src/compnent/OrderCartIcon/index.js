@@ -36,6 +36,7 @@ export default function UserMenu() {
         color="primary"
         className={classes.button}
         endIcon={<AirportShuttleIcon/>}
+        onClick={()=>{history.push(PATH.ALLORDERS)}}
       >
         ORDERS
       </Button>

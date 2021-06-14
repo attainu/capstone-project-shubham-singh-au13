@@ -15,6 +15,8 @@ import UPDATEMEDICINE from './../container/Medicine/UpdateMedicine';
 import MedicineDetail from './../container/User/Medicinedetail';
 import Cart from './../container/User/Cart';
 import AllCatItems from './../container/User/AllCartItems';
+import Buy from './../container/User/Buy';
+import Bill from '../container/User/bill';
 
 export const routes=[
 {exact : true , path:PATH.HOME,component:Home},
@@ -33,4 +35,6 @@ export const routes=[
 {exact : true , path:PATH.MEDICINEDETAILS,component:MedicineDetail},
 {exact : true , path:PATH.ADDITEMTOCART,component:Cart},
 {exact : true , path:PATH.CARTITEMS,component:AllCatItems},
+{exact : true , path:PATH.BUTITEMSID,component:Buy},
+{exact : true , path:PATH.RECIPTS,component:Bill},
 ]
