@@ -39,5 +39,6 @@ app.get("/show/Allmedicine/cart",auth.userValidation,Cart.showcartItems)
 app.post("/remove/medicine/cart/:id",auth.userValidation,Cart.removeMedicinecart)
 app.post("/buy/medicine/:cart/:medicine",auth.userValidation,Buy.BUY_MEDICINE)
 app.get("/odered/recipt/:id",auth.userValidation,order.billOrder)
+app.get('/all/orders',auth.userValidation,order.allOrders)
 
 export default app;

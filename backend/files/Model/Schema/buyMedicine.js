@@ -23,6 +23,9 @@ const buymedicine=mongoose.Schema({
     quantity:{
         type:Number,
         required:[true,'enter the number of medicine you want to buy']
+    },
+    deliveryPlace:{
+        type:String
     }
 })
 

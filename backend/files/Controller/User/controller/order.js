@@ -42,6 +42,21 @@ const order={
             }
         ],
         })
+    },
+    allOrders:async(req,resp)=>{
+        let allMedicine=await BuyMedicine.find({buyerId:req.userId,buy:true}).populate('buyerId').populate(
+            'medicineId')
+        let data=allMedicine.map(i=>{
+            return {buydetail:{
+                date:i.date,quantity:i.quantity,address:i.deliveryPlace
+            },medicine:{name:i.medicineId.name,price:i.medicineId.price,photo:i.medicineId.photo},
+            userDetail:{name:i.buyerId.name,email:i.buyerId.email,mobileNo:i.buyerId.mobileNo}
+        }
+        })
+    return resp.status(200).json({
+        data,
+        err:{}
+    })
     }
 }
 export default order;
