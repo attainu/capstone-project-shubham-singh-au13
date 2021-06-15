@@ -165,6 +165,7 @@ export default function USERUPDATEPROFILE({history}) {
                 label="Password"
                 type="password"
                 id="password"
+                placeholder="password length grater than 2 than new password will be change"
                 autoComplete="current-password"
                 onChange={(e)=>{setPassword(e.target.value)
                 }}

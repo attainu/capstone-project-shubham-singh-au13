@@ -90,7 +90,6 @@ export default function UPDATESHOPKEPERPROFILE({history}) {
         data.append('mobileNo',mobileNumber)
         data.append('shopName',shopName||USERPROFILE?.Shoapkeper?.shopName)
         data.append('image',file)
-        console.log(password||USERPROFILE?.Shoapkeper?.password)
       fetch('http://localhost:2000/shoapkeper/updateprofile',{
         method:"POST",
         body:data,
@@ -200,6 +199,7 @@ export default function UPDATESHOPKEPERPROFILE({history}) {
                 label="Password"
                 type="password"
                 id="password"
+                placeholder="password length grater than 2 than new password will be change"
                 autoComplete="current-password"
                 onChange={(e)=>{setPassword(e.target.value)
                 }}
