@@ -1,0 +1,4 @@
+.trying:hover{
+    transform: scale(1.06);
+    border-radius: 5px solid black;
+}
